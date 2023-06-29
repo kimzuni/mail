@@ -1,0 +1,29 @@
+timezone: Asia/Seoul
+lang: ko
+
+title: "Send Mail"
+description: ""
+url: "https://mail.kimzuni.com"
+baseurl: ""
+
+email:
+  - "hello@kimzuni.com"
+  - "hello@zuni.kim"
+github: kimzuni
+
+cdn: "https://cdn.jsdelivr.net/gh/kimzuni/cdn/"
+logos: "https://cdn.jsdelivr.net/gh/kimzuni/logos@latest"
+favicons: "https://cdn.jsdelivr.net/gh/kimzuni/logos@latest/kimzuni/favicons"
+
+
+
+include:
+  - _pages
+
+
+
+
+
+sass:
+  style: compressed
+  sourcemap: never

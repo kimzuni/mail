@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/home.css"/>
+<main id="main"><form>
+	<label>To</label>
+	<input type="text" value="hello@kimzuni.com" disabled/>
+	<label for="subject">Subject</label>
+	<input type="text" id="subject" name="subject" placeholder="Subject..." autocomplete="off"/>
+	<label for="content">Content</label>
+	<textarea id="content" name="content" placeholder="Content..."></textarea>
+	<div>
+		<label>Reset<button type="reset" hidden></button></label>
+		<label>Submit<button type="submit" hidden></button></label>
+	</div>
+</form></main>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/assets/js/darkmode.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/assets/js/home.js"></script>
