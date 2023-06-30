@@ -4,6 +4,9 @@
 - name: Blog
   url: "//zuni.kim"
   icon: "blog"
+- name: Mail
+  url: "//mail.kimzuni.com"
+  icon: "mail"
 - name: GitHub
   url: "//github.com/kimzuni"
   icon: "github"

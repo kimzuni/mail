@@ -9,7 +9,9 @@ form.addEventListener("submit", async function(e) {
 			subject: subject.value.trim(),
 			content: content.value.trim(),
 		})).data;
-		if (message) f_msgbox({type: "success", message});
+		f_msgbox({type: "success", message: message || "Success"});
+		subject.value = "";
+		content.value = "";
 	} catch(err) {
 		const {message} = err.response.data;
 		f_msgbox({type: "error", message: message || "Failed"});
