@@ -214,20 +214,15 @@ a {
 		gap: var(--gap);
 
 		li {
-		} a, span {
+		} a {
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			height: var(--width);
 			width: var(--width);
-			cursor: pointer;
-
-			&:hover {
-				--svg-draw-color: var(--theme-color);
-			}
 		}
 	} @media (min-width: 768px) {
-		#sites {
+		.sites-nav {
 			display: none;
 		}
 	}
