@@ -66,3 +66,7 @@ const sub_theme_color = get_style("--sub-theme-color");
 const theme_color_trans = get_style("--theme-color-trans");
 
 const html = document.querySelector("html");
+
+
+
+console.log(`%cWelcome to the ${location.href.split("//")[1].split("/")[0]}!`, `font-size: 2em; color: ${theme_color};`);
