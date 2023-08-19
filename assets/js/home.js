@@ -3,8 +3,7 @@ const form = html.querySelector("form");
 form.addEventListener("submit", async function(e) {
 	e.preventDefault();
 
-	const subject = subject.value.trim();
-	const content = content.value.trim();
+	const [subject, content] = [subject, content].map(x => x.value.trim());
 	if (!subject && !content) {
 		f_msgbox({type: "error", message: "Nothing has been entered."});
 		return false;
