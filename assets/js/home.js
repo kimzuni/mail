@@ -3,6 +3,8 @@ const form = html.querySelector("form");
 form.addEventListener("submit", async function(e) {
 	e.preventDefault();
 
+	if (!confirm("Do you want to send an email?")) return false;
+
 	try {
 		const {subject, content} = form;
 		const {message} = (await axios.post("https://sendmail.kimzuni.com/", {
