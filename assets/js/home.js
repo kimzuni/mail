@@ -3,17 +3,20 @@ const form = html.querySelector("form");
 form.addEventListener("submit", async function(e) {
 	e.preventDefault();
 
-	if (!confirm("Do you want to send an email?")) return false;
+	const subject = subject.value.trim();
+	const content = content.value.trim();
+	if (!subject && !content) {
+		f_msgbox({type: "error", message: "Nothing has been entered."});
+		return false;
+	} else if (!confirm("Do you want to send an email?")) return false;
 
 	try {
-		const {subject, content} = form;
 		const {message} = (await axios.post("https://sendmail.kimzuni.com/", {
-			subject: subject.value.trim(),
-			content: content.value.trim(),
+			subject, content
 		})).data;
 		f_msgbox({type: "success", message: message || "Success"});
-		subject.value = "";
-		content.value = "";
+		form.subject.value = "";
+		form.content.value = "";
 	} catch(err) {
 		const message = err.response?.data?.message;
 		f_msgbox({type: "error", message: message || "Unknown Error"});
