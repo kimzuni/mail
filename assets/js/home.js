@@ -22,6 +22,6 @@ form.addEventListener("submit", async function(e) {
 		form.content.value = "";
 	} catch(err) {
 		const message = err.response?.data?.message;
-		f_msgbox({type: "error", message: message || "Unknown Error"});
+		f_msgbox({type: "error", message: message || "Error"});
 	}
 });

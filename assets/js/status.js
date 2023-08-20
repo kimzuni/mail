@@ -8,8 +8,9 @@ const sval = {
 	}, ok: {
 		title: "Good",
 		color: "var(--success-color)",
+		submit: true,
 	}, error: {
-		title: "Bad",
+		title: "Down",
 		color: "var(--error-color)",
 	},
 }
@@ -17,9 +18,16 @@ const sval = {
 
 
 const updateStatus = function(e) {
-	stag.title = e.title || "";
+	stag.title = e.title && "Server Status: " + e.title || "";
 	set_style(stag, "--status", e.color || "");
 	stag.classList.remove("check");
+
+	const label = form.querySelector('[type="submit"]').parentNode;
+	if (e.submit) {
+		[label, label.children[0]].map(x => x.removeAttribute("disabled"));
+	} else {
+		[label, label.children[0]].map(x => x.setAttribute("disabled", ""));
+	}
 }
 
 let statusTimeout;

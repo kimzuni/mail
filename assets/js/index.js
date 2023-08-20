@@ -2,7 +2,6 @@ let main, header, siteTitle, nav, sitesNav;
 
 const document_resize = function() {
 	header.clientHeight == siteTitle.clientHeight ? header.classList.remove("over") : header.classList.add("over");
-	
 }
 
 window.addEventListener("DOMContentLoaded", function() {
@@ -13,7 +12,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	sitesNav = html.querySelector("#sites-nav");
 
 	for (let a of html.querySelectorAll('a[href]')) {
-		if (a.innerText == a.getAttribute("href")) {
+		if (a.innerText.trim() == a.getAttribute("href").trim()) {
 			if (100 < a.innerText.length) {
 				let arr = a.innerText.split("/");
 				if (7 < arr.length) {
