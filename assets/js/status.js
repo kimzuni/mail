@@ -1,7 +1,9 @@
+const host = "https://mailer.kimzuni.com/";
+const stag = html.querySelector(".status");
 const sval = {
 	default: {
-		title: false,
-		color: false,
+		title: undefined,
+		color: undefined,
 	}, check: {
 		title: "Checking...",
 		color: "var(--warning-color)",
@@ -18,16 +20,12 @@ const sval = {
 
 
 const updateStatus = function(e) {
-	stag.title = e.title && "Server Status: " + e.title || "";
+	stag.title = e.title ? "Server Status: " + e.title : "";
 	set_style(stag, "--status", e.color || "");
 	stag.classList.remove("check");
 
-	const label = form.querySelector('[type="submit"]').parentNode;
-	if (e.submit) {
-		[label, label.children[0]].map(x => x.removeAttribute("disabled"));
-	} else {
-		[label, label.children[0]].map(x => x.setAttribute("disabled", ""));
-	}
+	const elem = form.querySelector('[type="submit"]');
+	e.submit ? elem.removeAttribute("disabled") : elem.setAttribute("disabled", "");
 }
 
 let statusTimeout;
@@ -44,3 +42,7 @@ const checkStatus = async function() {
 
 	statusTimeout = setTimeout(checkStatus, 5000);
 }
+
+
+
+stag.click();

@@ -15,10 +15,6 @@ form {
 
 	label {
 		padding-bottom: .15em;
-
-		&[disabled] {
-			color: var(--sub-color);
-		}
 	} input, textarea {
 		background: transparent;
 		margin-bottom: var(--gap);
@@ -49,6 +45,26 @@ form {
 		font-weight: bold;
 		font-size: .85em;
 		text-align: center;
+	} .btnbox {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+
+		button {
+			background: transparent;
+			border: 1px solid var(--bd-color);
+			border-radius: .5em;
+			padding: var(--gap-4) var(--gap);
+			cursor: pointer;
+			transition: .1s color, .1s border-color;
+
+			&[disabled] {
+				color: var(--sub-color);
+			} &:not([disabled]):hover {
+				color: var(--theme-color);
+				border-color: var(--theme-color);
+			}
+		}
 	} .status {
 		background-color: var(--sub-bg-color);
 		border: 1px solid var(--bd-color);
@@ -82,23 +98,6 @@ form {
 			height: var(--c);
 			width: var(--c);
 			transition: inherit;
-		}
-	} .btnbox {
-		display: flex;
-		justify-content: space-between;
-		width: 100%;
-
-		label {
-			border: 1px solid var(--bd-color);
-			border-radius: .5em;
-			padding: var(--gap-4) var(--gap);
-			cursor: pointer;
-			transition: .1s color, .1s border-color;
-
-			&:not([disabled]):hover {
-				color: var(--theme-color);
-				border-color: var(--theme-color);
-			}
 		}
 	}
 }
