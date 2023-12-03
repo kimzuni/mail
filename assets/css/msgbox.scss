@@ -19,7 +19,7 @@
 	.msgbox {
 		display: flex;
 		align-items: flex-end;
-		margin-top: calc(var(--lineHeight) + var(--paddingTop) * -2);
+		margin-top: 0;
 		height: 0;
 		opacity: 1;
 		transition-property: margin, height, opacity;

@@ -4,7 +4,11 @@ layout: default
 
 <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/home.css"/>
 <main id="main"><form id="form">
-	<button type="button" class="status" title="Checking..." onclick="checkStatus();"></button>
+	<button type="button" class="status check" title="Checking..." onclick="checkStatus();">
+		<svg>
+			<rect></rect>
+		</svg>
+	</button>
 	<label for="to">To</label>
 	<input type="text" id="to" name="to" value="hello@kimzuni.com" disabled/>
 	<label for="title">Title</label>
@@ -13,7 +17,7 @@ layout: default
 	<textarea id="content" name="content" placeholder="Message..."></textarea>
 	<div class="btnbox">
 		<button type="reset">Reset</button>
-		<button type="submit">Submit</button>
+		<button type="submit" disabled>Submit</button>
 	</div>
 	<p>The recipient is for reference only.</p>
 </form></main>

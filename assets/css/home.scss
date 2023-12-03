@@ -66,8 +66,9 @@ form {
 			}
 		}
 	} .status {
+		position: relative;
 		background-color: var(--sub-bg-color);
-		border: 1px solid var(--bd-color);
+		border: 0;
 		border-radius: .25em;
 		display: flex;
 		justify-content: center;
@@ -77,13 +78,34 @@ form {
 		cursor: pointer;
 		color: var(--sub-color);
 		transition-duration: .1s;
-		transition-property: color, border-color, background;
+		transition-property: color, border-color, stroke, background;
 
-		&:hover {
-			border-color: var(--color);
+		svg {
+			position: absolute;
+		} rect {
+			height: calc(100% - 1px);
+			width: calc(100% - 1px);
+			fill: none;
+			x: .5px;
+			y: .5px;
+			rx: .25em;
+			ry: .25em;
+			stroke: var(--bd-color);
+			stroke-width: 1px;
+			transition: inherit;
+		} &:hover {
 			color: var(--color);
+
+			rect {
+				stroke: var(--color);
+			}
 		} &.check {
-			border-style: dashed;
+			rect {
+				stroke: var(--color);
+				stroke-dasharray: var(--length, 0);
+				stroke-dashoffset: var(--length, 0);
+				animation: check 1s linear forwards infinite;
+			}
 		} &:before {
 			content: "Status";
 			display: inline;
@@ -99,5 +121,13 @@ form {
 			width: var(--c);
 			transition: inherit;
 		}
+	}
+}
+
+@keyframes check {
+	to {
+		stroke-dashoffset: var(--length-, 0);
+	} from {
+		stroke-dashoffset: var(--length, 0);
 	}
 }

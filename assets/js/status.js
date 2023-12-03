@@ -6,7 +6,7 @@ const sval = {
 		color: undefined,
 	}, check: {
 		title: "Checking...",
-		color: "var(--warning-color)",
+		color: null,
 	}, ok: {
 		title: "Good",
 		color: "var(--success-color)",
@@ -20,18 +20,23 @@ const sval = {
 
 
 const updateStatus = function(e) {
-	stag.title = e.title ? "Server Status: " + e.title : "";
-	set_style(stag, "--status", e.color || "");
-	stag.classList.remove("check");
-
-	const elem = form.querySelector('[type="submit"]');
-	e.submit ? elem.removeAttribute("disabled") : elem.setAttribute("disabled", "");
+	if (e.title) stag.title = "Server Status: " + e.title;
+	if (e.color) {
+		stag.classList.remove("check");
+		set_style(stag, "--status", e.color);
+		form.querySelector('[type="submit"]').toggleAttribute("disabled", !e.submit);
+	}
 }
 
 let statusTimeout;
 const checkStatus = async function() {
 	clearTimeout(statusTimeout);
+
+	const totalLength = form.querySelector("rect").getTotalLength() / 20;
+	set_style(stag, "--length", totalLength);
+	set_style(stag, "--length-", totalLength*-1);
 	stag.classList.add("check");
+	updateStatus(sval.check);
 
 	try {
 		await axios.get(host);
