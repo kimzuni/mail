@@ -2,28 +2,30 @@
 ---
 
 :root {
-	--scrollbar-height: .5rem;
-	--scrollbar-width: .5rem;
-	--scrollbar-button-height: calc(var(--scrollbar-width) * 1.2);
-	--scrollbar-button-width: calc(var(--scrollbar-height) * 1.2);
+	--sb-color: var(--scrollbar-color, var(--theme-color, green));
+	--sb-color-dark: var(--scrollbar-color-dark, var(--theme-color-dark, red));
+	--sb-height: var(--scrollbar-height, .5rem);
+	--sb-width: var(--scrollbar-width, .5rem);
+	--sb-button-height: calc(var(--sb-width) * 1.2);
+	--sb-button-width: calc(var(--sb-height) * 1.2);
 } body> * {
-	--scrollbar-height: .35rem;
-	--scrollbar-width: .35rem;
-	--scrollbar-thumb-radius: var(--scrollbar-width);
-	--scrollbar-button-height: 0;
-	--scrollbar-button-width: 0;
+	--sb-height: var(--scrollbar-height, .35rem);
+	--sb-width: var(--scrollbar-width, .35rem);
+	--sb-thumb-radius: var(--sb-width);
+	--sb-button-height: var(--scrollbar-button-height, 0px);
+	--sb-button-width: var(--scrollbar-button-width, 0px);
 } ::-webkit-scrollbar {
 	-webkit-appearance: none;
 } ::-webkit-scrollbar:vertical {
-	width: var(--scrollbar-width);
+	width: var(--sb-width);
 } ::-webkit-scrollbar:horizontal {
-	height: var(--scrollbar-height);
+	height: var(--sb-height);
 } ::-webkit-scrollbar-track {
 } ::-webkit-scrollbar-thumb {
-	background-color: var(--theme-color);
-	border-radius: var(--scrollbar-thumb-radius, 0);
+	background-color: var(--sb-color);
+	border-radius: var(--sb-thumb-radius, 0);
 } ::-webkit-scrollbar-thumb:hover {
-	background-color: var(--theme-color-dark);
+	background-color: var(--sb-color-dark);
 }
 
 
@@ -36,12 +38,12 @@
 ::-webkit-scrollbar-button:horizontal:end:decrement {
 	display: none;
 } ::-webkit-scrollbar-button {
-	background-color: var(--theme-color);
-	border-radius: var(--scrollbar-width);
-	height: var(--scrollbar-button-height);
-	width: var(--scrollbar-button-width);
+	background-color: var(--sb-color);
+	border-radius: var(--sb-width);
+	height: var(--sb-button-height);
+	width: var(--sb-button-width);
 } ::-webkit-scrollbar-button:hover {
-	background-color: var(--theme-color-dark);
+	background-color: var(--sb-color-dark);
 } ::-webkit-scrollbar-button:vertical:start {
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
@@ -56,6 +58,6 @@
 	border-bottom-left-radius: 0;
 } ::-webkit-scrollbar-corner {
 	background-color: transparent;
-	border-radius: var(--scrollbar-width);
+	border-radius: var(--sb-width);
 	border-bottom-right-radius: 0;
 }
